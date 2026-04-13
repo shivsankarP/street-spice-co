@@ -1421,23 +1421,36 @@ em { font-style: italic; }
 
 @media (max-width: 900px) {
   /* Nav */
-  .nav-logo-img { height: 80px; }
-  .nav-hamburger { display: flex; }
+  .nav-logo-img { height: 75px; }
+  .nav-hamburger { display: flex; margin-left: 1rem; }
   .btn-order { display: none; }
   .nav-links {
     position: fixed;
-    inset: 0 0 0 30%;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     flex-direction: column;
     justify-content: center;
-    gap: 2.5rem;
-    background: rgba(10, 5, 5, 0.97);
-    backdrop-filter: blur(20px);
-    clip-path: inset(0 0 0 100%);
-    transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: center;
+    gap: 3rem;
+    background: rgba(14, 7, 6, 0.98);
+    backdrop-filter: blur(25px);
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1050;
+    margin: 0;
+    padding: 0;
   }
-  .nav-links.open { clip-path: inset(0 0 0 0%); }
-  .nav-link { font-size: 1.2rem; }
+  .nav-links.open { clip-path: circle(150% at 100% 0%); }
+  .nav-link { 
+    font-size: 2.2rem; 
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+  }
+  /* Specificity fix for logo color on dark mobile backdrop */
+  .nav-logo-text .text-maroon { color: var(--gold-light); }
 
   /* About */
   .about-grid { grid-template-columns: 1fr; }

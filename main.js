@@ -372,13 +372,24 @@ function initGSAP() {
     const images = [];
     const airpods = { frame: 0 };
 
-    for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        images.push(img);
-    }
-
-    images[0].onload = render;
+    // Progressive Loader: Prioritize frame 0 then background-load others
+    const firstImg = new Image();
+    firstImg.src = currentFrame(0);
+    firstImg.onload = () => {
+        images[0] = firstImg;
+        render(); // Render immediately when first frame is ready
+        
+        // Start preloading the full sequence in the background
+        for (let i = 1; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            img.onload = () => {
+                images[i] = img;
+                // If scroll reached this frame while loading, render it
+                if (airpods.frame === i) render();
+            }
+        }
+    };
 
     function render() {
         if (images[airpods.frame] && images[airpods.frame].complete) {

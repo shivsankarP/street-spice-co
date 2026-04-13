@@ -313,6 +313,14 @@ em { font-style: italic; }
 .hero-bg {
   position: absolute; inset: 0;
   z-index: 0;
+  /* Static placeholder to prevent visual flash before the sequence initializes */
+  background: #0E0706 url('ezgif-split/frame_000.png') no-repeat center center / cover;
+  transform: scale(1.1); /* Match canvas scaling to keep watermarks hidden */
+}
+@media (max-width: 900px) {
+  .hero-bg {
+    background-image: url('mobile/ezgif-frame-001.png');
+  }
 }
 .hero-bg-video, .hero-bg-canvas {
   width: 100%;
@@ -321,6 +329,7 @@ em { font-style: italic; }
   object-position: center center;
   pointer-events: none;
   filter: brightness(1.1) contrast(1.05);
+  transform: scale(1.1); /* Precisely crops out corner watermarks (VEO) */
 }
 
 .hero-overlay {

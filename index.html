@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Street Spice Co — Luxury Gazebo Café</title>
+  <meta name="description"
+    content="Street Spice Co. Where classic Indian heritage meets modern gourmet street food. Dine inside our signature luxury wooden gazebo and experience taste like royalty." />
+  <meta property="og:title" content="Street Spice Co — Luxury Gazebo Café" />
+  <meta property="og:description"
+    content="Royal flavours. Modern soul. Experience India's finest street food elevated to luxury." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+       GRAIN TEXTURE OVERLAY
+  ══════════════════════════════════ -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="page-border" aria-hidden="true"></div>
+
+
+
+
+  <!-- ══════════════════════════════════
+       HEADER / NAV
+  ══════════════════════════════════ -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main Navigation">
+      <a href="#home" class="nav-logo" id="nav-logo">
+        <img src="logo2.png" alt="Street Spice Co Logo" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="text-white">STREET</span>
+          <span class="text-maroon">SPICE CO</span>
+        </div>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+        <li><a href="#menu" class="nav-link" id="nav-menu">Menu</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact Us</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════ -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-bg">
+      <canvas id="hero-img-sequence" class="hero-bg-canvas"></canvas>
+      <div class="hero-overlay"></div>
+      <!-- Lattice decorative SVG -->
+      <div class="lattice-overlay" aria-hidden="true">
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="lattice" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="60" y2="60" stroke="rgba(201,168,76,0.08)" stroke-width="0.8" />
+              <line x1="60" y1="0" x2="0" y2="60" stroke="rgba(201,168,76,0.08)" stroke-width="0.8" />
+              <rect x="0" y="0" width="60" height="60" fill="none" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#lattice)" />
+        </svg>
+      </div>
+    </div>
+
+
+
+    <!-- Floating food orbs -->
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       MARQUEE STRIP
+  ══════════════════════════════════ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Fresh Tender Coconut</span><span class="marquee-dot">✦</span>
+      <span>Bombay Bhel Puri</span><span class="marquee-dot">✦</span>
+      <span>Alphonso Mango Lassi</span><span class="marquee-dot">✦</span>
+      <span>Royal Pani Puri</span><span class="marquee-dot">✦</span>
+      <span>Loaded Desi Masala Chips</span><span class="marquee-dot">✦</span>
+      <span>Golden Samosa Chaat</span><span class="marquee-dot">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span>Fresh Tender Coconut</span><span class="marquee-dot">✦</span>
+      <span>Bombay Bhel Puri</span><span class="marquee-dot">✦</span>
+      <span>Alphonso Mango Lassi</span><span class="marquee-dot">✦</span>
+      <span>Royal Pani Puri</span><span class="marquee-dot">✦</span>
+      <span>Loaded Desi Masala Chips</span><span class="marquee-dot">✦</span>
+      <span>Golden Samosa Chaat</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       MENU SECTION
+  ══════════════════════════════════ -->
+  <section class="menu-section section" id="menu" aria-label="Our Menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow reveal-up">— A Culinary Journey —</span>
+        <h2 class="section-title reveal-up">Our <em>Signature</em> Menu</h2>
+        <p class="section-subtitle reveal-up">Every dish is a story of spice, tradition, and craftsmanship.</p>
+      </div>
+
+
+
+      <!-- Menu Grid — Expanding Panels -->
+      <div class="menu-scroll-wrapper">
+        <div class="menu-container" id="menu-grid" role="tabpanel">
+
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut"
+            style="background-image: url('food/coconutwater1.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">₹140</span>
+              </div>
+              <h3 class="menu-card-title">Fresh Tender Coconut</h3>
+              <p class="menu-card-desc">Pure, refreshing coconut water served chilled with a hint of mint. Nature's
+                finest hydration.</p>
+              <div class="menu-card-tags">
+                <span>🌿 Pure</span><span>🥥 Fresh</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="menu-card panel reveal-card" data-category="snacks" id="card-bhelpuri"
+            style="background-image: url('food/bhelpuri1.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-badge">Street Classic</div>
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Snacks</span>
+                <span class="menu-card-price">₹120</span>
+              </div>
+              <h3 class="menu-card-title">Bombay Bhel Puri</h3>
+              <p class="menu-card-desc">A crunchy medley of puffed rice, sev, roasted peanuts, and tangy chutneys. A
+                burst of Mumbai street soul.</p>
+              <div class="menu-card-tags">
+                <span>🌿 Veg</span><span>💎 Tangy</span>
+              </div>
+              <a href="item-detail.html?item=card-bhelpuri" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-mangolassi"
+            style="background-image: url('food/mangolassi1.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-badge">Bestseller</div>
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">₹160</span>
+              </div>
+              <h3 class="menu-card-title">Alphonso Mango Lassi</h3>
+              <p class="menu-card-desc">Velvety yoghurt blended with premium Alphonso mango pulp and a touch of
+                cardamom.</p>
+              <div class="menu-card-tags">
+                <span>🥭 Seasonal</span><span>✨ Creamy</span>
+              </div>
+              <a href="mangolassi.html" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="menu-card panel reveal-card" data-category="snacks" id="card-panipuri"
+            style="background-image: url('food/panipuri1.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-badge">Chef's Pick</div>
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Snacks</span>
+                <span class="menu-card-price">₹110</span>
+              </div>
+              <h3 class="menu-card-title">Royal Pani Puri</h3>
+              <p class="menu-card-desc">Crispy puris filled with spiced potato and sprouts, served with our secret
+                mint-herb water.</p>
+              <div class="menu-card-tags">
+                <span>🌿 Veg</span><span>💎 Artisan</span>
+              </div>
+              <a href="item-detail.html?item=card-panipuri" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="menu-card panel reveal-card" data-category="snacks" id="card-desichips"
+            style="background-image: url('food/desichips.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Snacks</span>
+                <span class="menu-card-price">₹110</span>
+              </div>
+              <h3 class="menu-card-title">Loaded Desi Masala Chips</h3>
+              <p class="menu-card-desc">Hand-cut potato chips dusted with our signature royal spice blend and topped
+                with special accompaniments.</p>
+              <div class="menu-card-tags">
+                <span>🔥 Spicy</span><span>🥔 Handmade</span>
+              </div>
+              <a href="chips.html" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <article class="menu-card panel reveal-card" data-category="snacks" id="card-samosachaat"
+            style="background-image: url('food/samosachaat1.jpeg')">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Snacks</span>
+                <span class="menu-card-price">₹150</span>
+              </div>
+              <h3 class="menu-card-title">Golden Samosa Chaat</h3>
+              <p class="menu-card-desc">Crushed vegetable samosas topped with chickpeas, yoghurt, and a trio of sweet &
+                spicy chutneys.</p>
+              <div class="menu-card-tags">
+                <span>🌿 Veg</span><span>🏆 Rich</span>
+              </div>
+              <a href="item-detail.html?item=card-samosachaat" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Decorative spice blobs -->
+    <div class="spice-blob blob-a" aria-hidden="true"></div>
+    <div class="spice-blob blob-b" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       ABOUT SECTION
+  ══════════════════════════════════ -->
+  <section class="about-section section" id="about" aria-label="About Us">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Left — Illustration panel -->
+        <div class="about-illustration-panel">
+          <div class="about-illustration-inner">
+            <img src="gazebo.png" alt="Classic gazebo illustration with mandala patterns" class="about-illus-img"
+              loading="lazy" />
+            <div class="about-illus-overlay" aria-hidden="true"></div>
+          </div>
+          <!-- Food hero image -->
+          <div class="about-food-img-wrap">
+            <video src="food truck.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+
+        <!-- Right — Story panel -->
+        <div class="about-story-panel">
+          <div class="about-story-inner">
+            <span class="section-eyebrow gold reveal-up">— Our Story —</span>
+            <h2 class="about-title reveal-up">A <em>Gazebo</em> Where<br>Heritage is Served.</h2>
+            <div class="about-divider reveal-up" aria-hidden="true"></div>
+            <p class="about-body reveal-up">
+              Nestled at the heart of the city, <strong>Street Spice Co.</strong> was born from a singular vision — to
+              take the soulful, chaotic joy of Indian street food and serve it within an atmosphere of quiet luxury.
+            </p>
+            <p class="about-body reveal-up">
+              Our gazebo is not merely a structure; it is an architectural homage to the <em>jaali</em> screens and
+              haveli
+              courtyards of traditional India, built from reclaimed teak and adorned with hand-carved motifs. Every beam
+              tells a
+              story.
+            </p>
+            <p class="about-body reveal-up">
+              Our spice masters source their blends from <strong>the finest spice farms in India</strong>, grinding each
+              masala
+              fresh each morning. From the first sip of masala chai to the last spoonful of biryani, you travel — taste
+              by
+              taste — through the royal kitchens of India.
+            </p>
+            <div class="about-values reveal-up">
+              <div class="value-pill">🌿 Farm-to-Table</div>
+              <div class="value-pill">🏺 Artisan Spices</div>
+              <div class="value-pill">🏰 Heritage Recipes</div>
+              <div class="value-pill">✨ Modern Luxury</div>
+            </div>
+            <a href="#menu" class="btn btn-outline-gold reveal-up" id="about-menu-link">Taste Our Heritage</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════ -->
+
+
+  <!-- ══════════════════════════════════
+       CONTACT SECTION
+  ══════════════════════════════════ -->
+  <section class="contact-section section" id="contact" aria-label="Contact Us">
+    <div class="contact-grid container">
+
+      <!-- Left: Map + Info -->
+      <div class="contact-info-panel">
+        <span class="section-eyebrow reveal-up">— Find Us —</span>
+        <h2 class="contact-title reveal-up">Visit Our <em>Gazebo</em></h2>
+        <div class="contact-details reveal-up">
+          <div class="contact-detail-item" id="contact-address">
+            <div class="contact-detail-icon" aria-hidden="true">📍</div>
+            <div>
+              <strong>Address</strong>
+              <p>12, Royal Spice Lane, Near Heritage Chowk,<br />Heritage District, New Delhi — 110001</p>
+            </div>
+          </div>
+          <div class="contact-detail-item" id="contact-phone">
+            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div>
+              <strong>Phone</strong>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="contact-detail-item" id="contact-hours">
+            <div class="contact-detail-icon" aria-hidden="true">⏰</div>
+            <div>
+              <strong>Hours</strong>
+              <p>Daily: 10:00 AM – 11:00 PM<br />
+                Last Order: 10:30 PM</p>
+            </div>
+          </div>
+        </div>
+        <!-- Map embed -->
+        <div class="map-wrap reveal-up">
+          <iframe id="contact-map" title="Street Spice Co location map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.118965!2d75.8198!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4023a5d5e1d%3A0x4e5ce3e48a0b5bb8!2sNew+Delhi%2C+India!5e0!3m2!1sen!2sin!4v1680000000000"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="map-pin-label" aria-hidden="true">📍 Street Spice Co.</div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-panel">
+        <div class="contact-form-card reveal-card">
+          <h3 class="form-title">Reserve a Table <span class="form-title-or">&amp; Order</span></h3>
+          <p class="form-subtitle">Let us prepare your royal experience in advance.</p>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group" id="fg-name">
+              <input type="text" id="field-name" name="name" class="form-input" placeholder=" " required
+                autocomplete="name" />
+              <label for="field-name" class="form-label">Full Name</label>
+              <span class="form-focus-bar"></span>
+            </div>
+            <div class="form-group" id="fg-email">
+              <input type="email" id="field-email" name="email" class="form-input" placeholder=" " required
+                autocomplete="email" />
+              <label for="field-email" class="form-label">Email Address</label>
+              <span class="form-focus-bar"></span>
+            </div>
+            <div class="form-group" id="fg-phone">
+              <input type="tel" id="field-phone" name="phone" class="form-input" placeholder=" " autocomplete="tel" />
+              <label for="field-phone" class="form-label">Phone Number</label>
+              <span class="form-focus-bar"></span>
+            </div>
+            <div class="form-group" id="fg-guests">
+              <select id="field-guests" name="guests" class="form-input form-select" required>
+                <option value="" disabled selected hidden></option>
+                <option value="1-2">1 – 2 Guests</option>
+                <option value="3-5">3 – 5 Guests</option>
+                <option value="6-10">6 – 10 Guests</option>
+                <option value="10+">10+ Guests (Private Event)</option>
+              </select>
+              <label for="field-guests" class="form-label">Number of Guests</label>
+              <span class="form-focus-bar"></span>
+            </div>
+            <div class="form-group" id="fg-msg">
+              <textarea id="field-msg" name="message" class="form-input form-textarea" placeholder=" "
+                rows="4"></textarea>
+              <label for="field-msg" class="form-label">Special Requests</label>
+              <span class="form-focus-bar"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="form-submit">
+              <span class="btn-text">Reserve My Table</span>
+              <span class="btn-icon" aria-hidden="true">→</span>
+            </button>
+            <p class="form-privacy">We respect your privacy. No spam, ever.</p>
+          </form>
+          <!-- Success state -->
+          <div class="form-success" id="form-success" aria-live="polite">
+            <div class="form-success-icon">✦</div>
+            <h4>Reservation Received!</h4>
+            <p>Your royal table awaits. We'll call you within 30 minutes to confirm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="footer-mandala" aria-hidden="true">
+      <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="140" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"
+          stroke-dasharray="4 4" />
+        <circle cx="150" cy="150" r="100" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.12" />
+        <circle cx="150" cy="150" r="60" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.1"
+          stroke-dasharray="2 6" />
+        <polygon points="150,20 165,135 280,150 165,165 150,280 135,165 20,150 135,135" fill="none" stroke="#C9A84C"
+          stroke-width="0.7" opacity="0.12" />
+      </svg>
+    </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">STREET SPICE CO.</span>
+        <p class="footer-tagline">Royal flavours. Modern soul.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="#" class="social-link" id="social-ig" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" id="social-fb" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <a href="#" class="social-link" id="social-zomato" aria-label="Zomato">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.48 18.144c-2.928 0-4.8-1.2-4.8-3.168 0-2.208 2.064-3.312 4.08-3.312.72 0 1.44.144 2.016.432l.24-2.208H9.792L9.6 8.4h6.96l-.624 5.856c.72.768 1.104 1.776 1.104 2.928 0 1.68-1.824 2.96-4.56 2.96z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Explore</h4>
+        <ul role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Legal</h4>
+        <ul role="list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">FSSAI License</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Royal Newsletter</h4>
+        <p>Get new menu drops & exclusive offers.</p>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <input type="email" id="nl-email" class="nl-input" placeholder="Your email address"
+            aria-label="Newsletter email" required />
+          <button type="submit" class="nl-btn" id="nl-submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Street Spice Co. All rights reserved. Made with ♥ in India.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════
+       SUB-FOOTER (MEET THE DEVELOPERS)
+  ══════════════════════════════════ -->
+  <footer class="sub-footer">
+    <div class="container sub-footer-inner">
+      <div class="sub-footer-dev">
+        <a href="https://www.instagram.com/intellex.web?igsh=MWZyenU0bWc3M2RxOQ==" target="_blank"
+          rel="noopener noreferrer" class="dev-link" id="dev-credit-link">
+          <span>MEET THE DEVELOPERS</span>
+          <svg class="dev-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="main.js" defer></script>
+</body>
+
+</html>

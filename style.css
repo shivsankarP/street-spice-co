@@ -783,43 +783,63 @@ em { font-style: italic; }
   .menu-card.panel {
     flex: none;
     width: 100%;
-    height: 100px;
+    height: 120px; /* Increased for better label space */
     transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
   .menu-card.panel.active {
-    height: 500px;
+    height: 550px;
     flex: none;
   }
-  .menu-card.panel:not(.active) .menu-card-title {
-    position: relative;
-    top: 50%;
-    left: 0;
-    bottom: auto;
-    transform: translateY(-50%) rotate(0deg);
-    font-size: 1.3rem;
-    opacity: 1;
-    text-align: left;
-    white-space: normal;
-  }
-  .menu-card.panel:not(.active) .menu-card-meta {
-    opacity: 1;
-    margin-bottom: 0px;
+  /* Hide the dark overlay for collapsed cards on mobile so text is clear on color */
+  .menu-card.panel:not(.active)::before {
+    opacity: 0;
   }
   .menu-card.panel:not(.active) .panel-content {
-    bottom: 50%;
-    transform: translateY(50%);
+    top: 70%;
+    bottom: auto;
     left: 20px;
     right: 20px;
+    transform: translateY(-50%);
+    opacity: 1 !important;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center children */
+    pointer-events: none;
   }
-  .panel-content {
-    bottom: 25px;
-    left: 25px;
-    right: 25px;
+  .menu-card.panel:not(.active) .menu-card-title {
+    position: static;
+    opacity: 1 !important;
+    color: var(--white) !important;
+    font-size: 1.4rem;
+    transform: none;
+    white-space: normal;
+    text-align: center; /* Center the text itself */
+    margin: 0;
+    display: block;
   }
-  .menu-card-badge {
-    top: -120px;
+  .menu-card.panel:not(.active) .menu-card-meta {
+    opacity: 1 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
   }
-  .menu-card-title {
+  .menu-card.panel:not(.active) .menu-card-meta span {
+    text-align: center;
+  }
+  .menu-card.panel:not(.active) .menu-card-price {
+    color: var(--gold) !important;
+    opacity: 1 !important;
+  }
+  /* Reset for active state */
+  .menu-card.panel.active .panel-content {
+    top: auto;
+    bottom: 30px;
+    transform: none;
+    pointer-events: auto;
+  }
+  .menu-card.panel.active .menu-card-title {
       font-size: 1.8rem;
   }
 }

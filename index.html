@@ -65,19 +65,7 @@
     <div class="hero-bg">
       <canvas id="hero-img-sequence" class="hero-bg-canvas"></canvas>
       <div class="hero-overlay"></div>
-      <!-- Lattice decorative SVG -->
-      <div class="lattice-overlay" aria-hidden="true">
-        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="lattice" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <line x1="0" y1="0" x2="60" y2="60" stroke="rgba(201,168,76,0.08)" stroke-width="0.8" />
-              <line x1="60" y1="0" x2="0" y2="60" stroke="rgba(201,168,76,0.08)" stroke-width="0.8" />
-              <rect x="0" y="0" width="60" height="60" fill="none" stroke="rgba(201,168,76,0.05)" stroke-width="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#lattice)" />
-        </svg>
-      </div>
+
     </div>
 
 
@@ -102,6 +90,11 @@
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
       <span>Fresh Tender Coconut</span><span class="marquee-dot">✦</span>
+      <span>Coconut Matcha</span><span class="marquee-dot">✦</span>
+      <span>Coconut Coffee</span><span class="marquee-dot">✦</span>
+      <span>Coconut Mocktail</span><span class="marquee-dot">✦</span>
+      <span>Coconut Protein Shake</span><span class="marquee-dot">✦</span>
+      <span>Coconut Hot Chocolate</span><span class="marquee-dot">✦</span>
       <span>Bombay Bhel Puri</span><span class="marquee-dot">✦</span>
       <span>Alphonso Mango Lassi</span><span class="marquee-dot">✦</span>
       <span>Royal Pani Puri</span><span class="marquee-dot">✦</span>
@@ -109,6 +102,11 @@
       <span>Golden Samosa Chaat</span><span class="marquee-dot">✦</span>
       <!-- duplicate for seamless loop -->
       <span>Fresh Tender Coconut</span><span class="marquee-dot">✦</span>
+      <span>Coconut Matcha</span><span class="marquee-dot">✦</span>
+      <span>Coconut Coffee</span><span class="marquee-dot">✦</span>
+      <span>Coconut Mocktail</span><span class="marquee-dot">✦</span>
+      <span>Coconut Protein Shake</span><span class="marquee-dot">✦</span>
+      <span>Coconut Hot Chocolate</span><span class="marquee-dot">✦</span>
       <span>Bombay Bhel Puri</span><span class="marquee-dot">✦</span>
       <span>Alphonso Mango Lassi</span><span class="marquee-dot">✦</span>
       <span>Royal Pani Puri</span><span class="marquee-dot">✦</span>
@@ -134,12 +132,13 @@
       <div class="menu-scroll-wrapper">
         <div class="menu-container" id="menu-grid" role="tabpanel">
 
+          <!-- 1. Fresh Tender Coconut -->
           <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut"
             style="background-image: url('food/coconutwater1.jpeg')">
             <div class="panel-content">
               <div class="menu-card-meta">
                 <span class="menu-card-category">Drinks</span>
-                <span class="menu-card-price">₹140</span>
+                <span class="menu-card-price">£6.00</span>
               </div>
               <h3 class="menu-card-title">Fresh Tender Coconut</h3>
               <p class="menu-card-desc">Pure, refreshing coconut water served chilled with a hint of mint. Nature's
@@ -151,13 +150,105 @@
             </div>
           </article>
 
+          <!-- 2. Coconut Matcha -->
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut-matcha"
+            style="background-color: var(--emerald);">
+            <div class="panel-content">
+              <div class="menu-card-badge">New Fusion</div>
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">£7.00</span>
+              </div>
+              <h3 class="menu-card-title">Coconut Matcha</h3>
+              <p class="menu-card-desc">Earthystream ceremonial matcha whisked into our premium coconut milk. A vibrant,
+                energizing blend.</p>
+              <div class="menu-card-tags">
+                <span>🍵 Organic</span><span>🥥 Creamy</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut-matcha" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+          
+          <!-- 3. Coconut Coffee -->
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut-coffee"
+            style="background-color: var(--saffron);">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">£7.00</span>
+              </div>
+              <h3 class="menu-card-title">Coconut Coffee</h3>
+              <p class="menu-card-desc">Rich, dark roasted espresso layered with chilled, silky coconut cream. The
+                ultimate urban fuel.</p>
+              <div class="menu-card-tags">
+                <span>☕ Dark</span><span>✨ Sophisticated</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut-coffee" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+          
+          <!-- 4. Coconut Mocktail -->
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut-mocktail"
+            style="background-color: var(--rani-pink);">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">£7.50</span>
+              </div>
+              <h3 class="menu-card-title">Coconut Mocktail</h3>
+              <p class="menu-card-desc">A vibrant explosion of wild berries and fresh coconut water. High-contrast
+                flavour and energy.</p>
+              <div class="menu-card-tags">
+                <span>🍓 Vibrant</span><span>⚡ Energy</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut-mocktail" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+          
+          <!-- 5. Coconut Protein Shake -->
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut-protein"
+            style="background-color: var(--marigold);">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">£8.00</span>
+              </div>
+              <h3 class="menu-card-title">Coconut Protein Shake</h3>
+              <p class="menu-card-desc">The ultimate urban recovery. Premium plant protein blended with silky coconut
+                milk and a touch of golden honey.</p>
+              <div class="menu-card-tags">
+                <span>💪 Peak Performance</span><span>🏃 Fuel</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut-protein" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+          
+          <!-- 6. Coconut Hot Chocolate -->
+          <article class="menu-card panel reveal-card" data-category="drinks" id="card-coconut-hot-chocolate"
+            style="background-color: var(--maroon-dark);">
+            <div class="panel-content">
+              <div class="menu-card-meta">
+                <span class="menu-card-category">Drinks</span>
+                <span class="menu-card-price">£7.50</span>
+              </div>
+              <h3 class="menu-card-title">Coconut Hot Chocolate</h3>
+              <p class="menu-card-desc">Velvety dark chocolate melted into warm, thick coconut cream. A decadent floral
+                escape in every sip.</p>
+              <div class="menu-card-tags">
+                <span>🍫 Rich</span><span>🌙 Comforting</span>
+              </div>
+              <a href="item-detail.html?item=card-coconut-hot-chocolate" class="btn-card-more">View More →</a>
+            </div>
+          </article>
+
+          <!-- 8. snacks... rest of the original menu -->
           <article class="menu-card panel reveal-card" data-category="snacks" id="card-bhelpuri"
             style="background-image: url('food/bhelpuri1.jpeg')">
             <div class="panel-content">
               <div class="menu-card-badge">Street Classic</div>
               <div class="menu-card-meta">
                 <span class="menu-card-category">Snacks</span>
-                <span class="menu-card-price">₹120</span>
+                <span class="menu-card-price">£5.50</span>
               </div>
               <h3 class="menu-card-title">Bombay Bhel Puri</h3>
               <p class="menu-card-desc">A crunchy medley of puffed rice, sev, roasted peanuts, and tangy chutneys. A
@@ -175,7 +266,7 @@
               <div class="menu-card-badge">Bestseller</div>
               <div class="menu-card-meta">
                 <span class="menu-card-category">Drinks</span>
-                <span class="menu-card-price">₹160</span>
+                <span class="menu-card-price">£6.50</span>
               </div>
               <h3 class="menu-card-title">Alphonso Mango Lassi</h3>
               <p class="menu-card-desc">Velvety yoghurt blended with premium Alphonso mango pulp and a touch of
@@ -193,7 +284,7 @@
               <div class="menu-card-badge">Chef's Pick</div>
               <div class="menu-card-meta">
                 <span class="menu-card-category">Snacks</span>
-                <span class="menu-card-price">₹110</span>
+                <span class="menu-card-price">£5.00</span>
               </div>
               <h3 class="menu-card-title">Royal Pani Puri</h3>
               <p class="menu-card-desc">Crispy puris filled with spiced potato and sprouts, served with our secret
@@ -210,7 +301,7 @@
             <div class="panel-content">
               <div class="menu-card-meta">
                 <span class="menu-card-category">Snacks</span>
-                <span class="menu-card-price">₹110</span>
+                <span class="menu-card-price">£5.00</span>
               </div>
               <h3 class="menu-card-title">Loaded Desi Masala Chips</h3>
               <p class="menu-card-desc">Hand-cut potato chips dusted with our signature royal spice blend and topped
@@ -227,7 +318,7 @@
             <div class="panel-content">
               <div class="menu-card-meta">
                 <span class="menu-card-category">Snacks</span>
-                <span class="menu-card-price">₹150</span>
+                <span class="menu-card-price">£6.00</span>
               </div>
               <h3 class="menu-card-title">Golden Samosa Chaat</h3>
               <p class="menu-card-desc">Crushed vegetable samosas topped with chickpeas, yoghurt, and a trio of sweet &
@@ -256,50 +347,47 @@
   <section class="about-section section" id="about" aria-label="About Us">
     <div class="container">
       <div class="about-grid">
-        <!-- Left — Illustration panel -->
-        <div class="about-illustration-panel">
-          <div class="about-illustration-inner">
-            <img src="gazebo.png" alt="Classic gazebo illustration with mandala patterns" class="about-illus-img"
-              loading="lazy" />
-            <div class="about-illus-overlay" aria-hidden="true"></div>
-          </div>
-          <!-- Food hero image -->
-          <div class="about-food-img-wrap">
-            <video src="food truck.mp4" autoplay muted loop playsinline></video>
-          </div>
+
+
+        <!-- Left — Video Panel -->
+        <div class="about-media-panel reveal-left">
+          <video src="about.mp4" autoplay muted loop playsinline class="about-video"></video>
         </div>
 
         <!-- Right — Story panel -->
         <div class="about-story-panel">
           <div class="about-story-inner">
             <span class="section-eyebrow gold reveal-up">— Our Story —</span>
-            <h2 class="about-title reveal-up">A <em>Gazebo</em> Where<br>Heritage is Served.</h2>
+
             <div class="about-divider reveal-up" aria-hidden="true"></div>
             <p class="about-body reveal-up">
               Nestled at the heart of the city, <strong>Street Spice Co.</strong> was born from a singular vision — to
               take the soulful, chaotic joy of Indian street food and serve it within an atmosphere of quiet luxury.
             </p>
             <p class="about-body reveal-up">
-              Our gazebo is not merely a structure; it is an architectural homage to the <em>jaali</em> screens and
-              haveli
-              courtyards of traditional India, built from reclaimed teak and adorned with hand-carved motifs. Every beam
-              tells a
-              story.
+              A striking midnight-black canopy with a sharp, matte silhouette. Warm Edison bulbs glow beneath the
+              frame, blending industrial lines with a sophisticated, high-contrast urban energy. It’s compact,
+              professional, and undeniably stylish.
+            </p>
+            <p class="about-body reveal-up" style="font-style: italic; opacity: 0.9;">
+              Kerala’s heritage is a tropical legacy of spice trade and classical arts, centered on the coconut tree.
+              Known as the "Tree of Life," the coconut provides the essential flavors, fibers, and timber that sustain
+              the state’s iconic culture and backwater lifestyle.
             </p>
             <p class="about-body reveal-up">
               Our spice masters source their blends from <strong>the finest spice farms in India</strong>, grinding each
               masala
-              fresh each morning. From the first sip of masala chai to the last spoonful of biryani, you travel — taste
-              by
-              taste — through the royal kitchens of India.
+              fresh each morning. From the first sip of <strong>fresh tender coconut</strong> to the last bite of our
+              vibrant chaat, you travel — taste by
+              taste — through the bold, urban soul of modern India.
             </p>
             <div class="about-values reveal-up">
               <div class="value-pill">🌿 Farm-to-Table</div>
               <div class="value-pill">🏺 Artisan Spices</div>
-              <div class="value-pill">🏰 Heritage Recipes</div>
-              <div class="value-pill">✨ Modern Luxury</div>
+              <div class="value-pill">🏙️ Urban Energy</div>
+              <div class="value-pill">✨ Sophisticated</div>
             </div>
-            <a href="#menu" class="btn btn-outline-gold reveal-up" id="about-menu-link">Taste Our Heritage</a>
+            <a href="#menu" class="btn btn-outline-gold reveal-up" id="about-menu-link">Taste Our Spices</a>
           </div>
         </div>
 
@@ -320,36 +408,34 @@
 
       <!-- Left: Map + Info -->
       <div class="contact-info-panel">
-        <span class="section-eyebrow reveal-up">— Find Us —</span>
-        <h2 class="contact-title reveal-up">Visit Our <em>Gazebo</em></h2>
+        <h2 class="contact-title reveal-up">Find Us</h2>
         <div class="contact-details reveal-up">
           <div class="contact-detail-item" id="contact-address">
             <div class="contact-detail-icon" aria-hidden="true">📍</div>
             <div>
               <strong>Address</strong>
-              <p>12, Royal Spice Lane, Near Heritage Chowk,<br />Heritage District, New Delhi — 110001</p>
+              <p>London</p>
             </div>
           </div>
           <div class="contact-detail-item" id="contact-phone">
             <div class="contact-detail-icon" aria-hidden="true">📞</div>
             <div>
               <strong>Phone</strong>
-              <p>+91 98765 43210</p>
+              <p>+44 7876 176005</p>
             </div>
           </div>
-          <div class="contact-detail-item" id="contact-hours">
-            <div class="contact-detail-icon" aria-hidden="true">⏰</div>
+          <div class="contact-detail-item" id="contact-email">
+            <div class="contact-detail-icon" aria-hidden="true">✉️</div>
             <div>
-              <strong>Hours</strong>
-              <p>Daily: 10:00 AM – 11:00 PM<br />
-                Last Order: 10:30 PM</p>
+              <strong>Email</strong>
+              <p><a href="mailto:info@rujiscroydon.co.uk" style="color: inherit; text-decoration: none;">info@rujiscroydon.co.uk</a></p>
             </div>
           </div>
         </div>
         <!-- Map embed -->
         <div class="map-wrap reveal-up">
           <iframe id="contact-map" title="Street Spice Co location map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.118965!2d75.8198!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4023a5d5e1d%3A0x4e5ce3e48a0b5bb8!2sNew+Delhi%2C+India!5e0!3m2!1sen!2sin!4v1680000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.4734!2d-0.1015!3d51.5285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon!5e0!3m2!1sen!2suk!4v1680000000000"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
           </iframe>
           <div class="map-pin-label" aria-hidden="true">📍 Street Spice Co.</div>
@@ -359,8 +445,8 @@
       <!-- Right: Form -->
       <div class="contact-form-panel">
         <div class="contact-form-card reveal-card">
-          <h3 class="form-title">Reserve a Table <span class="form-title-or">&amp; Order</span></h3>
-          <p class="form-subtitle">Let us prepare your royal experience in advance.</p>
+          <h3 class="form-title">Register For Events</h3>
+          <p class="form-subtitle">Join us for our upcoming culinary experiences.</p>
           <form class="contact-form" id="contact-form" novalidate>
             <div class="form-group" id="fg-name">
               <input type="text" id="field-name" name="name" class="form-input" placeholder=" " required
@@ -397,7 +483,7 @@
               <span class="form-focus-bar"></span>
             </div>
             <button type="submit" class="btn btn-primary btn-full" id="form-submit">
-              <span class="btn-text">Reserve My Table</span>
+              <span class="btn-text">Register Now</span>
               <span class="btn-icon" aria-hidden="true">→</span>
             </button>
             <p class="form-privacy">We respect your privacy. No spam, ever.</p>
@@ -405,8 +491,8 @@
           <!-- Success state -->
           <div class="form-success" id="form-success" aria-live="polite">
             <div class="form-success-icon">✦</div>
-            <h4>Reservation Received!</h4>
-            <p>Your royal table awaits. We'll call you within 30 minutes to confirm.</p>
+            <h4>Registration Received!</h4>
+            <p>Thank you for registering. We will send you the event details shortly.</p>
           </div>
         </div>
       </div>
@@ -433,22 +519,16 @@
         <span class="footer-logo">STREET SPICE CO.</span>
         <p class="footer-tagline">Royal flavours. Modern soul.</p>
         <div class="footer-socials" aria-label="Social media links">
-          <a href="#" class="social-link" id="social-ig" aria-label="Instagram">
+          <a href="https://www.instagram.com/rujis_west_croydon?igsh=cWE2b3U0NXFpYjR4&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" id="social-ig" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
             </svg>
           </a>
-          <a href="#" class="social-link" id="social-fb" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61584757769359" target="_blank" rel="noopener noreferrer" class="social-link" id="social-fb" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="#" class="social-link" id="social-zomato" aria-label="Zomato">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.48 18.144c-2.928 0-4.8-1.2-4.8-3.168 0-2.208 2.064-3.312 4.08-3.312.72 0 1.44.144 2.016.432l.24-2.208H9.792L9.6 8.4h6.96l-.624 5.856c.72.768 1.104 1.776 1.104 2.928 0 1.68-1.824 2.96-4.56 2.96z" />
             </svg>
           </a>
         </div>
@@ -465,9 +545,8 @@
       <div class="footer-links-group">
         <h4>Legal</h4>
         <ul role="list">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">FSSAI License</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
         </ul>
       </div>
       <div class="footer-newsletter">
@@ -481,7 +560,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 Street Spice Co. All rights reserved. Made with ♥ in India.</p>
+      <p>© 2024 Street Spice Co. All rights reserved. Made with ♥ in London.</p>
     </div>
   </footer>
 

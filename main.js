@@ -400,14 +400,14 @@ function initGSAP() {
 
     gsap.to(airpods, {
         frame: frameCount - 1,
-        snap: "frame",
         ease: "none",
         scrollTrigger: {
             trigger: ".hero",
             start: "top top",
-            end: isMobile ? "+=1500" : "+=2000", // Faster scroll for mobile
-            scrub: isMobile ? 0.5 : 1.2, // Added delay for desktop
-            pin: true
+            end: isMobile ? "+=1500" : "+=4000", // Further extended to ensure every frame is deliberate
+            scrub: isMobile ? 0.5 : 3, // Even smoother delay as requested
+            pin: true,
+            anticipatePin: 1
         },
         onUpdate: render
     });
@@ -452,10 +452,7 @@ function initGSAP() {
       scrollTrigger: { trigger: "#menu-grid", start: "top 85%", toggleActions: "play none none none" } });
 
   // ── About section
-  gsap.fromTo(".about-illustration-panel",
-    { opacity: 0, x: -60 },
-    { opacity: 1, x: 0, duration: 1.1, ease: "power3.out",
-      scrollTrigger: { trigger: ".about-grid", start: "top 75%" } });
+
 
   gsap.fromTo(".about-story-inner > *",
     { opacity: 0, y: 40 },

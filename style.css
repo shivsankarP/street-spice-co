@@ -81,7 +81,11 @@ em { font-style: italic; }
   color: var(--gold);
   margin-bottom: 1rem;
 }
-.section-eyebrow.gold { color: var(--gold-light); }
+.section-eyebrow.gold { 
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+}
 
 .section-title {
   font-family: var(--ff-serif);
@@ -841,13 +845,36 @@ em { font-style: italic; }
 /* ── ABOUT SECTION ──────────────────────────────── */
 .about-section {
   background: #0E5943; /* Exact deep green */
+  padding: 20px 0;
   overflow: hidden;
 }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 700px;
-  background: var(--dark-2); /* Darker background for the framed grid */
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: auto;
+  background: transparent;
+  border-radius: var(--radius);
+  border: none;
+  overflow: hidden;
+  align-items: center;
+}
+.about-media-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 1.5rem;
+  overflow: hidden;
+  background: transparent;
+}
+.about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2.0);
+  border-radius: var(--radius-sm);
+  filter: brightness(0.9);
 }
 
 .about-illustration-panel {
@@ -935,35 +962,36 @@ em { font-style: italic; }
   filter: blur(60px);
 }
 .about-story-inner {
-  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem);
+  padding: 4rem 3rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .about-title {
   font-family: var(--ff-serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--cream);
-  line-height: 1.15;
-  text-align: center; /* Center for symmetry */
+  line-height: 1;
+  text-align: left;
 }
 .about-title em { color: var(--gold-light); font-style: italic; }
 
 .about-divider {
   width: 60px; height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
   border-radius: 2px;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
 }
 
 .about-body {
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   line-height: 1.8;
-  color: rgba(249, 243, 232, 0.8);
+  color: rgba(249, 243, 232, 0.95);
+  text-align: left;
 }
 .about-body strong { color: var(--gold-light); font-weight: 600; }
 .about-body em { color: rgba(249, 243, 232, 0.95); }
@@ -971,8 +999,9 @@ em { font-style: italic; }
 .about-values {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 0.6rem;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 .value-pill {
   padding: 0.4rem 1rem;
@@ -1453,10 +1482,7 @@ em { font-style: italic; }
   .nav-logo-text .text-maroon { color: var(--gold-light); }
 
   /* About */
-  .about-grid { grid-template-columns: 1fr; }
-  .about-illustration-panel { min-height: 400px; }
-  .about-illustration-inner { height: 50%; min-height: 240px; }
-  .about-food-img-wrap { height: 50%; }
+  .about-grid { grid-template-columns: 1fr; justify-items: center; }
 
   /* Contact */
   .contact-grid { grid-template-columns: 1fr; gap: 2rem; }

@@ -793,12 +793,23 @@ em { font-style: italic; }
   .menu-card.panel:not(.active) .menu-card-title {
     position: relative;
     top: 50%;
-    left: 30px;
+    left: 0;
     bottom: auto;
     transform: translateY(-50%) rotate(0deg);
     font-size: 1.3rem;
     opacity: 1;
     text-align: left;
+    white-space: normal;
+  }
+  .menu-card.panel:not(.active) .menu-card-meta {
+    opacity: 1;
+    margin-bottom: 0px;
+  }
+  .menu-card.panel:not(.active) .panel-content {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 20px;
+    right: 20px;
   }
   .panel-content {
     bottom: 25px;

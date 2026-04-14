@@ -349,21 +349,10 @@ function initGSAP() {
   if (heroImgSequence) {
     const ctx = heroImgSequence.getContext("2d");
     
-    // Detect mobile
-    const isMobile = window.innerWidth <= 768;
-    
-    // Set internal resolution based on device
-    if (isMobile) {
-      heroImgSequence.width = 1080; // Mobile vertical resolution
-      heroImgSequence.height = 1920;
-    } else {
-      heroImgSequence.width = 1920;
-      heroImgSequence.height = 1080;
-    }
-
-    const frameCount = isMobile ? 240 : 192;
+    // ── Hero Scroll Image Sequence
+    const frameCount = window.innerWidth <= 768 ? 240 : 192;
     const currentFrame = index => {
-      if (isMobile) {
+      if (window.innerWidth <= 768) {
         return `mobile/ezgif-frame-${String(index + 1).padStart(3, '0')}.png`;
       }
       return `ezgif-split/frame_${String(index).padStart(3, '0')}.png`;
@@ -371,46 +360,76 @@ function initGSAP() {
 
     const images = [];
     const airpods = { frame: 0 };
+    let lastRenderedFrame = 0;
 
-    // Progressive Loader: Prioritize frame 0 then background-load others
-    const firstImg = new Image();
-    firstImg.src = currentFrame(0);
-    firstImg.onload = () => {
-        images[0] = firstImg;
-        render(); // Render immediately when first frame is ready
-        
-        // Start preloading the full sequence in the background
-        for (let i = 1; i < frameCount; i++) {
-            const img = new Image();
-            img.src = currentFrame(i);
-            img.onload = () => {
-                images[i] = img;
-                // If scroll reached this frame while loading, render it
-                if (airpods.frame === i) render();
-            }
-        }
-    };
+    // Responsive canvas resizing
+    function updateCanvasSize() {
+      const mobile = window.innerWidth <= 768;
+      if (mobile) {
+        heroImgSequence.width = 1080;
+        heroImgSequence.height = 1920;
+      } else {
+        heroImgSequence.width = 1920;
+        heroImgSequence.height = 1080;
+      }
+      render();
+    }
+    
+    window.addEventListener("resize", updateCanvasSize);
 
     function render() {
-        if (images[airpods.frame] && images[airpods.frame].complete) {
-            ctx.clearRect(0, 0, heroImgSequence.width, heroImgSequence.height);
-            ctx.drawImage(images[airpods.frame], 0, 0, heroImgSequence.width, heroImgSequence.height);
-        }
+      const frameIdx = Math.round(airpods.frame);
+      const img = images[frameIdx];
+      if (img && img.complete && img.naturalWidth > 0) {
+        ctx.clearRect(0, 0, heroImgSequence.width, heroImgSequence.height);
+        ctx.drawImage(img, 0, 0, heroImgSequence.width, heroImgSequence.height);
+        lastRenderedFrame = frameIdx;
+      } else if (images[lastRenderedFrame]) {
+        // Fallback to last good frame to prevent flicker
+        ctx.clearRect(0, 0, heroImgSequence.width, heroImgSequence.height);
+        ctx.drawImage(images[lastRenderedFrame], 0, 0, heroImgSequence.width, heroImgSequence.height);
+      }
     }
 
-    gsap.to(airpods, {
-        frame: frameCount - 1,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: isMobile ? "+=1500" : "+=4000", // Further extended to ensure every frame is deliberate
-            scrub: isMobile ? 0.5 : 3, // Even smoother delay as requested
-            pin: true,
-            anticipatePin: 1
-        },
-        onUpdate: render
+    // Preload Logic
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.onload = () => {
+        images[i] = img;
+        if (i === 0) {
+          updateCanvasSize();
+          render();
+        }
+      };
+      img.src = currentFrame(i);
+    }
+
+    // Main Hero Sequence & Transition Timeline
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: window.innerWidth <= 768 ? "+=2500" : "+=3500",
+        scrub: 1.2, // Smoother follow-through
+        pin: true,
+        anticipatePin: 1,
+        onUpdate: () => gsap.ticker.add(render, true, true)
+      }
     });
+
+    heroTl.to(airpods, {
+      frame: frameCount - 1,
+      ease: "none"
+    }, 0);
+
+    // Smoothly fade out everything as we reach the end of the sequence
+    heroTl.to(".hero-bg, .hero-content", {
+      opacity: 0,
+      scale: 0.95,
+      filter: "blur(10px)",
+      ease: "power1.in",
+      duration: 0.2 // Final percentage of the scroll
+    }, 0.8); // Starts at 80% through the scroll duration
   }
 
   // ── Hero Mouse Parallax

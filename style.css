@@ -1110,7 +1110,7 @@ em {
   .menu-card.panel.active .panel-content {
     top: auto;
     bottom: 30px;
-    transform: none;
+    transform: translateX(-50%);
     pointer-events: auto;
   }
 

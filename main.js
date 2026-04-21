@@ -36,9 +36,11 @@
   }, { passive: true });
 
   // Back to top
-  backToTop?.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 })();
 
 /* ══════════════════════
@@ -90,7 +92,7 @@
         if (entry.isIntersecting) {
           links.forEach((l) => l.classList.remove("active"));
           const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-          active?.classList.add("active");
+          if (active) active.classList.add("active");
         }
       });
     },
@@ -130,7 +132,8 @@
     // Navigation on click for Desktop / Expansion on click for Mobile
     panel.addEventListener('click', (e) => {
       const isLinkClick = e.target.closest('.btn-card-more');
-      const detailLink = panel.querySelector('.btn-card-more')?.getAttribute('href');
+      const detailLinkEl = panel.querySelector('.btn-card-more');
+      const detailLink = detailLinkEl ? detailLinkEl.getAttribute('href') : null;
 
       // If we are on Desktop View (matching CSS @media limit)
       if (window.innerWidth > 900) {
@@ -256,7 +259,7 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const btn = document.getElementById("form-submit");
-    const btnText = btn?.querySelector(".btn-text");
+    const btnText = btn ? btn.querySelector(".btn-text") : null;
 
     // Simulate submission
     if (btnText) btnText.textContent = "Reserving…";
@@ -264,7 +267,7 @@
 
     setTimeout(() => {
       form.style.display = "none";
-      success?.classList.add("visible");
+      if (success) success.classList.add("visible");
     }, 1800);
   });
 })();
@@ -293,7 +296,8 @@
 
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-    const heroH = document.querySelector(".hero")?.offsetHeight || 800;
+    const heroEl = document.querySelector(".hero");
+    const heroH = heroEl ? heroEl.offsetHeight : 800;
     if (scrollY < heroH) {
       heroBg.style.transform = `scale(1.08) translateY(${scrollY * 0.25}px)`;
     }
@@ -574,6 +578,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
    15. INIT (wait for GSAP CDN)
 ══════════════════════ */
 window.addEventListener("load", () => {
-  document.querySelector(".hero")?.classList.add("loaded");
+  const heroEl = document.querySelector(".hero");
+  if (heroEl) heroEl.classList.add("loaded");
   if (typeof gsap !== "undefined") initGSAP();
 }, { once: true });

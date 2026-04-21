@@ -829,10 +829,12 @@ em {
 }
 
 /* Hover Effects */
-.menu-card.panel:hover:not(.active) {
-  flex: 0.85;
-  border-color: rgba(201, 168, 76, 0.4);
-  box-shadow: 0 10px 30px rgba(14, 7, 6, 0.5);
+@media (hover: hover) {
+  .menu-card.panel:hover:not(.active) {
+    flex: 0.85;
+    border-color: rgba(201, 168, 76, 0.4);
+    box-shadow: 0 10px 30px rgba(14, 7, 6, 0.5);
+  }
 }
 
 .menu-card.panel.hidden {
@@ -881,10 +883,12 @@ em {
   transform-origin: center center;
 }
 
-.menu-card.panel:hover:not(.active) .menu-card-title {
-  opacity: 1;
-  color: var(--gold);
-  text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+@media (hover: hover) {
+  .menu-card.panel:hover:not(.active) .menu-card-title {
+    opacity: 1;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+  }
 }
 
 .menu-card.panel.active .menu-card-title {

@@ -114,24 +114,44 @@
 
   panels.forEach(panel => {
     const activate = () => {
-      removeActiveClasses();
-      panel.classList.add('active');
+      if (!panel.classList.contains('active')) {
+        removeActiveClasses();
+        panel.classList.add('active');
+        return true;
+      }
+      return false;
     };
     
     // Desktop: Expand on hover
-    panel.addEventListener('mouseenter', activate);
+    panel.addEventListener('mouseenter', () => {
+      if (window.innerWidth > 900) activate();
+    });
     
     // Navigation on click for Desktop / Expansion on click for Mobile
     panel.addEventListener('click', (e) => {
+      const isLinkClick = e.target.closest('.btn-card-more');
+      const detailLink = panel.querySelector('.btn-card-more')?.getAttribute('href');
+
       // If we are on Desktop View (matching CSS @media limit)
       if (window.innerWidth > 900) {
-        const detailLink = panel.querySelector('.btn-card-more')?.getAttribute('href');
-        if (detailLink) {
+        if (!isLinkClick && detailLink) {
           window.location.href = detailLink;
         }
       } else {
-        // On Mobile/Tablet: Click to expand
-        activate();
+        // On Mobile/Tablet: Click to expand or navigate
+        const justActivated = activate();
+        
+        if (!justActivated || isLinkClick) {
+          // Navigating since it is already active
+          if (!isLinkClick && detailLink) {
+            window.location.href = detailLink;
+          }
+        } else {
+          // Prevent accidental link click on the first expand tap
+          if (isLinkClick) {
+            e.preventDefault();
+          }
+        }
       }
     });
   });

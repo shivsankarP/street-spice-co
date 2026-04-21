@@ -651,18 +651,26 @@ em {
   border-bottom: 1px solid rgba(201, 168, 76, 0.2);
   position: relative;
   z-index: 5;
+  -webkit-transform: translateZ(0); /* Hardware accel constraint */
+  transform: translateZ(0);
 }
 
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  /* Removed 'gap' to support older iOS, using margin-right instead */
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-animation: marqueeScroll 22s linear infinite;
   animation: marqueeScroll 22s linear infinite;
   white-space: nowrap;
-  width: max-content;
+  will-change: transform;
 }
 
 .marquee-track span {
+  display: inline-block;
+  margin-right: 2rem;
   font-family: var(--ff-cormorant);
   font-size: 1.1rem;
   font-weight: 700;
@@ -675,17 +683,30 @@ em {
   font-size: 0.7rem !important;
 }
 
-@keyframes marqueeScroll {
+@-webkit-keyframes marqueeScroll {
   0% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
-
   100% {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
   }
 }
 
 .marquee-strip:hover .marquee-track {
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 

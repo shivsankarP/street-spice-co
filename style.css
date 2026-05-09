@@ -2259,3 +2259,101 @@ em {
     z-index: 2;
   }
 }
+
+/* ── COLLAB STRIP ───────────────────────────────── */
+.collab-strip {
+  margin-top: 4.5rem;
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.collab-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.collab-label {
+  font-family: var(--ff-cormorant);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.collab-label::before,
+.collab-label::after {
+  content: '';
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.5));
+}
+
+.collab-label::after {
+  background: linear-gradient(to left, transparent, rgba(201, 168, 76, 0.5));
+}
+
+.collab-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.collab-logo-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  max-width: 380px;
+  width: 100%;
+}
+
+.collab-logo-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(201, 168, 76, 0.2), 0 0 0 1px rgba(201, 168, 76, 0.35);
+  border-color: rgba(201, 168, 76, 0.5);
+}
+
+.collab-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 600px) {
+  .collab-strip {
+    padding: 2rem 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .collab-label {
+    font-size: 1.2rem;
+  }
+
+  .collab-logo-card {
+    max-width: 100%;
+    padding: 0.8rem 1rem;
+  }
+}
